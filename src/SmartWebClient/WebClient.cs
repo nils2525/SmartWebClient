@@ -13,15 +13,17 @@ namespace SmartWebClient
     {
         private HttpClient _client;
         private HttpClientHandler _clientHandler;
-        private const string BaseUrl = "https://market.csgo.com/";
+        private string _baseUrl;
         private DateTime _lastRequestTime;
 
         public TimeSpan TimespanBetweenRequests { get; set; }
 
         public Dictionary<string, string> DefaultQueryParameters { get; }
 
-        public WebClient(bool useCookies = true)
+        public WebClient(string baseURL, bool useCookies = true)
         {
+            _baseUrl = baseURL;
+
             _clientHandler = new HttpClientHandler()
             {
                 UseCookies = useCookies
@@ -48,7 +50,7 @@ namespace SmartWebClient
             while (_lastRequestTime.Add(TimespanBetweenRequests) > DateTime.Now)
             {
                 //Console.Write(".");
-                Thread.Sleep(250);
+                Thread.Sleep(10);
             }
 
             _lastRequestTime = DateTime.Now;
@@ -69,7 +71,7 @@ namespace SmartWebClient
 
                     return result;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     Console.WriteLine(getResultString);
                 }
@@ -80,7 +82,7 @@ namespace SmartWebClient
 
         private Uri GetRequestUri(string path, List<(string, string)> queryParameters)
         {
-            return new Uri(BaseUrl + path + GenerateQueryString(queryParameters));
+            return new Uri(_baseUrl + path + GenerateQueryString(queryParameters));
         }
         private string GenerateQueryString(List<(string, string)> queryParameters)
         {
