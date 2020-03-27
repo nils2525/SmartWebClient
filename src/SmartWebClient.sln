@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartWebClient", "SmartWebClient\SmartWebClient.csproj", "{FC6D4332-52CF-432C-8593-85E43491B1FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartWebClient.Test", "SmartWebClient.Test\SmartWebClient.Test.csproj", "{E61D7F40-06A0-4473-97AF-21BFD2EB2EE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC6D4332-52CF-432C-8593-85E43491B1FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC6D4332-52CF-432C-8593-85E43491B1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC6D4332-52CF-432C-8593-85E43491B1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC6D4332-52CF-432C-8593-85E43491B1FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61D7F40-06A0-4473-97AF-21BFD2EB2EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61D7F40-06A0-4473-97AF-21BFD2EB2EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61D7F40-06A0-4473-97AF-21BFD2EB2EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61D7F40-06A0-4473-97AF-21BFD2EB2EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EFC1F2F-04F8-4AF3-A369-3A08A5A0C416}
+	EndGlobalSection
+EndGlobal
