@@ -54,9 +54,17 @@ namespace SmartWebClient
             }
 
             _lastRequestTime = DateTime.Now;
-            var getResult = await _client.GetAsync(uri);
 
-
+            HttpResponseMessage getResult;
+            try
+            {
+                getResult = await _client.GetAsync(uri);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return default;
+            }
 
             if (getResult.IsSuccessStatusCode)
             {
@@ -64,9 +72,9 @@ namespace SmartWebClient
                 try
                 {
                     var result = JsonConvert.DeserializeObject<T>(getResultString);
-                    if(result == null)
+                    if (result == null)
                     {
-                        Console.WriteLine(getResultString);
+                        Console.WriteLine("Warning: Can't deserialize the following object ' " + getResultString + " '.");
                     }
 
                     return result;
