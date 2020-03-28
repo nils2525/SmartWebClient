@@ -43,13 +43,8 @@ namespace SmartWebClient
         {
             var uri = GetRequestUri(path, queryParameters);
 
-            if (_lastRequestTime.Add(TimespanBetweenRequests) > DateTime.Now)
-            {
-                //Console.WriteLine("Wait until time between requests is reached");
-            }
             while (_lastRequestTime.Add(TimespanBetweenRequests) > DateTime.Now)
             {
-                //Console.Write(".");
                 Thread.Sleep(10);
             }
 
@@ -62,7 +57,7 @@ namespace SmartWebClient
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Logger.LogToConsole(Logger.LogType.Error, ex.Message);
                 return default;
             }
 
@@ -74,14 +69,14 @@ namespace SmartWebClient
                     var result = JsonConvert.DeserializeObject<T>(getResultString);
                     if (result == null)
                     {
-                        Console.WriteLine("Warning: Can't deserialize the following object ' " + getResultString + " '.");
+                        Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
                     }
 
                     return result;
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(getResultString);
+                    Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
                 }
             }
 
