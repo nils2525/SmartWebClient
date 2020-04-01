@@ -21,7 +21,8 @@ namespace SmartWebClient
                 else
                 {
                     var prefix = _separateLineBreakRequired ? Environment.NewLine : "";
-                    Console.WriteLine(prefix + type.ToString() + ": " + message);
+                    var dateString = DateTime.Now.ToString("s");
+                    Console.WriteLine(prefix + dateString + " | " + type.ToString() + ": " + message);
                     _separateLineBreakRequired = false;
                 }
             }
