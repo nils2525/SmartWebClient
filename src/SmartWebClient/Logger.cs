@@ -28,6 +28,11 @@ namespace SmartWebClient
             }
         }
 
+        public static void LogToConsole(Exception ex)
+        {
+            LogToConsole(LogType.Error, ex.ToString());
+        }
+
         public enum LogType
         {
             Information,
