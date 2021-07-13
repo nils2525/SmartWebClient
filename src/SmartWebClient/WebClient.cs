@@ -69,14 +69,14 @@ namespace SmartWebClient
                     var result = JsonConvert.DeserializeObject<T>(getResultString);
                     if (result == null)
                     {
-                        //Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
+                        Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
                     }
 
                     return result;
                 }
                 catch (Exception ex)
                 {
-                    //Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
+                    Logger.LogToConsole(Logger.LogType.Warning, "Can't deserialize the following object ' " + getResultString + " '.");
                 }
             }
 
